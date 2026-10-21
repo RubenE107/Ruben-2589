@@ -1,0 +1,52 @@
+/* src/components/RegisterForm.css */
+.register-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #9e0000;
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #000000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.register-form h2 { margin-top: 0; text-align: center; }
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label { margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+
+.form-group input {
+  padding: 0.6rem;
+  border: 1px solid #100c0c;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input.input-error { border-color: #e53935; background-color: #f1adad; }
+
+.error-text { color: #e53935; font-size: 0.8rem; margin-top: 0.3rem; }
+
+.form-alert { padding: 0.8rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.9rem; }
+.form-alert.error { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+.form-alert.success { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover { background-color: #1565c0; }
+button[type="submit"]:disabled { background-color: #90caf9; cursor: not-allowed; }
