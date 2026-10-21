@@ -1,12 +1,8 @@
-import './App.css'
-import { LoginForm } from './components/LoginForm';
+
+import { Main } from './components/Main';
 
 function App() {
-  return (
-    <div>
-      <LoginForm onLoginSuccess={() => {}} />
-    </div>
-  );
+  return <Main />;
 }
 
-export default App
+export default App;

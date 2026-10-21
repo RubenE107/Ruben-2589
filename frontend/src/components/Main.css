@@ -1,0 +1,23 @@
+/* src/components/Main.css */
+.welcome {
+  padding: 2rem;
+  text-align: center;
+}
+
+.btn-logout {
+  width: auto;
+  padding: 0.5rem 1rem;
+  background: #d32f2f;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.btn-link {
+  background: none;
+  color: #1976d2;
+  width: auto;
+  padding: 0;
+}
