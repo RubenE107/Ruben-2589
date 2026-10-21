@@ -1,10 +1,10 @@
 import './App.css'
-import { FormRegistrer } from './components/FormRegistrer'
+import { LoginForm } from './components/LoginForm';
 
 function App() {
   return (
     <div>
-      <FormRegistrer />
+      <LoginForm onLoginSuccess={() => {}} />
     </div>
   );
 }
