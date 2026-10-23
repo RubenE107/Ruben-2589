@@ -76,7 +76,7 @@ export function CardForm({ user, onSuccess, onClose }: ChargeFormProps) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Cargar Saldo</h2>
+        <h2 className='title'>Cargar Saldo</h2>
         <p>Saldo a cargar a nombre de: <strong>{user.name}</strong></p>
         
         {error && <div className="form-alert error">{getErrorMessage(error)}</div>}
