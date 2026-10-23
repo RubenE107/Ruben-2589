@@ -16,6 +16,7 @@
 }
 
 .btn-link {
+  border: none;
   background: none;
   color: #1976d2;
   width: auto;
