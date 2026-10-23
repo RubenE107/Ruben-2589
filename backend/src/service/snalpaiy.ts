@@ -86,7 +86,7 @@ export function processCharge(data: ChargeRequest, simulateSystemError: boolean)
     };
   }
 
-  if (card_number === '1234123412341234' && expiration === '12/26') {
+  if (card_number === '1234123412341234' && expiration === '12/26' && cvv==='543') {
     return {
       id: `mock-${Date.now()}`,
       status: 'aprobado',
