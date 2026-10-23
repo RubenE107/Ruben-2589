@@ -1,5 +1,3 @@
-// src/services/hash.ts
-
 /**
  * Parámetros PBKDF2.
  * - 100_000 iteraciones: recomendación OWASP 2023 para PBKDF2-SHA256.
@@ -47,7 +45,7 @@ async function derive(
   return crypto.subtle.deriveBits(
     {
       name: 'PBKDF2',
-      salt,
+      salt:salt.buffer as ArrayBuffer,
       iterations,
       hash: 'SHA-256',
     },
