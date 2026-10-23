@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL || ''; 
+
 export interface ChargeRequest {
   card_number: string;
   expiration: string;
@@ -23,7 +25,7 @@ export interface ChargeResponse {
 }
 
 export async function processPayment(data: ChargeRequest, simulateError: boolean = false): Promise<ChargeResponse> {
-  const response = await fetch('/api/charge', {
+  const response = await fetch(`${API_URL}/api/charge`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
