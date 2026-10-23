@@ -50,7 +50,7 @@ export function CardForm({ user, onSuccess, onClose }: ChargeFormProps) {
         onSuccess(response.transaction_amount); 
         onClose();
       } else {
-        setError(`Cobro rechazado: ${response.status_detail}`);
+        setError(response.status_detail);
       }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Error de conexión');
