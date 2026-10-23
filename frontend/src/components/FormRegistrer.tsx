@@ -63,7 +63,6 @@ export function FormRegistrer() {
         <form className="register-form" onSubmit={handleSubmit} noValidate>
             <h2>Crear Cuenta</h2>
 
-            {/* Aquí arreglamos el serverError para que no de error de renderizado */}
             {serverErrors && (
                 <div className="form-alert error">
                     {serverErrors.join(' ')}

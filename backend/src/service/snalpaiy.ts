@@ -10,7 +10,7 @@ export interface ChargeRequest {
 
 export interface ChargeResponse {
   id: string;
-  status: 'aprovado' | 'rechazado' | 'error';
+  status: 'aprobado' | 'rechazado' | 'error';
   status_detail: string;
   transaction_amount: number;
   date_created: string;
@@ -21,6 +21,7 @@ export interface ChargeResponse {
   card_number: string;
   cvv: string;
 }
+const TipeErr=['internal_server_error','invalid_amount','invalid_card_data','payment_approved','card_declined']
 
 export function processCharge(data: ChargeRequest, simulateSystemError: boolean): ChargeResponse {
   const { card_number, expiration, cvv, amount, payer_id, payer_email } = data;
@@ -88,7 +89,7 @@ export function processCharge(data: ChargeRequest, simulateSystemError: boolean)
   if (card_number === '1234123412341234' && expiration === '12/26') {
     return {
       id: `mock-${Date.now()}`,
-      status: 'aprovado',
+      status: 'aprobado',
       status_detail: 'payment_approved',
       transaction_amount: amount,
       date_created: new Date().toISOString(),
