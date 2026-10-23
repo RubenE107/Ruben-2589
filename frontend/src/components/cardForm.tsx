@@ -7,8 +7,8 @@ import './cardForm.css';
 interface ChargeFormProps {
   user: SessionUser;
   onSuccess: (amountToAdd: number) => void; 
-  onClose: () => void; 
-
+  onClose: () => void; }
+  
 export function CardForm({ user, onSuccess, onClose }: ChargeFormProps) {
   const [cardNumber, setCardNumber] = useState('');
   const [expiration, setExpiration] = useState('');
