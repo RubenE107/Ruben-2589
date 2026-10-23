@@ -1,23 +1,41 @@
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import type { SessionUser } from '../types/user';
 import { betsData, snailsData } from '../data/dashData';
+import {CardForm} from './cardForm';
+import { updateUserMonto } from '../services/users';
+import { saveSession } from '../services/session';
 import './dasboard.css';
+import { useState } from 'react';
 
 interface DashboardProps {
   user: SessionUser;
   onLogout: () => void;
+  onUserUpdate: (updatedUser: SessionUser) => void;
+
 }
 
-export function Dashboard({ user, onLogout }: DashboardProps) {
+export function Dashboard({ user, onLogout,onUserUpdate }: DashboardProps) {
+  const [ischargeOpen, setIsChargeOpen] = useState(false);
+  const handleChargeSuccess = (amountToAdd: number) => {
+    const updated =updateUserMonto(user.id, amountToAdd);
+    saveSession(updated);
+    onUserUpdate(updated);
+    alert(`¡Carga exitosa! Nuevo saldo: $${amountToAdd}`);
+  };
+
+
   return (
     <div className="dashboard-container">
+      {ischargeOpen && (
+        <CardForm user={user} onSuccess={handleChargeSuccess} onClose={() => setIsChargeOpen(false)} />
+      )}
       <header className="dashboard-header">
         <div>
           <h1>Hola, {user.name}</h1>
           <p className="balance-display">Saldo actual: <strong>${user.monto.toFixed(2)}</strong></p>
         </div>
         <div className="header-actions">
-          <button className="btn-primary" onClick={() => alert('Próximamente: M4')}>
+          <button className="btn-primary" onClick={() => setIsChargeOpen(true)}>
             Cargar Saldo
           </button>
           <button className="btn-secondary" onClick={onLogout}>

@@ -20,7 +20,7 @@ function App() {
   };
 
   if (user) {
-    return <Dashboard user={user} onLogout={handleLogout} />;
+    return <Dashboard user={user} onLogout={handleLogout} onUserUpdate={setUser} />;
   }
 
   return <IniSesion onLoginSuccess={setUser} />;

@@ -57,3 +57,20 @@ export async function loginUser(
   const { passwordH: _, ...safeUser } = user;
   return safeUser;
 }
+
+
+export function updateUserMonto(userId: string, amountToAdd: number): Omit<User, 'passwordH'> {
+  const users = getAllUsers();
+  const userIndex = users.findIndex(u => u.id === userId);
+  
+  if (userIndex === -1) {
+    throw new Error('Usuario no encontrado');
+  }
+
+  const updatedUser = { ...users[userIndex], monto: users[userIndex].monto + amountToAdd };
+  users[userIndex] = updatedUser;
+  saveAllUsers(users);
+
+  const { passwordH: _, ...safeUser } = updatedUser;
+  return safeUser;
+}
